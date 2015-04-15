@@ -4,6 +4,7 @@
 
 <spring:url value="/" var="helloUrl" />
 <spring:url value="/about" var="aboutUrl" />
+<spring:url value="/showPdfPage/getPdf" var="showPdfPage" />
 
 <div class="menu">
 
@@ -14,6 +15,9 @@
 		</li>
 		<li ${fn:contains(pageContext.request.requestURI, 'hello') ? 'class="selected"' : ''}>
 			<a href="${helloUrl}"><spring:message code="menu.hello" /></a>
+		</li>
+		<li ${fn:contains(pageContext.request.requestURI, 'showPdfPage') ? 'class="selected"' : ''}>
+			<a href="${showPdfPage}"><spring:message code="menu.jasperReport" /></a>
 		</li>
 	</ul>
 </div> 

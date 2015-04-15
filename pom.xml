@@ -4,25 +4,87 @@
   <artifactId>dihaw-spring-jasperreports</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  
     	<properties>
-		<jdk.version>1.6</jdk.version>
-		<spring-version>3.2.2.RELEASE</spring-version>
-		<jstl.version>1.2</jstl.version>
-		<junit.version>4.11</junit.version>
-		<logback.version>1.0.13</logback.version>
-		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
-		<tiles.version>3.0.3</tiles.version>
-		
-	</properties>
-
+			<jdk.version>1.6</jdk.version>
+			<spring-version>3.2.2.RELEASE</spring-version>
+			<jstl.version>1.2</jstl.version>
+			<log4j.version>1.2.17</log4j.version>
+			<junit.version>4.11</junit.version>
+			<logback.version>1.0.13</logback.version>
+			<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+			<tiles.version>3.0.3</tiles.version>
+		</properties>
+	
 	<build>
 		<finalName>dihaw-spring-jasperreports</finalName>
-    </build>
+		<plugins>
+		<!-- 		Add this Plugin to compile list of jrxml in order to get .jasper file -->
+		  <plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>jasperreports-maven-plugin</artifactId>
+		    <version>1.0-beta-2</version>
+		    <executions>
+		      <execution>
+		        <goals>
+		          <goal>compile-reports</goal>
+		        </goals>
+		      </execution>
+		    </executions>
+		    <dependencies>
+		      <dependency>
+		        <groupId>net.sf.jasperreports</groupId>
+		        <artifactId>jasperreports</artifactId>
+		        <version>5.5.0</version>
+		      </dependency>
+		      <dependency>
+		        <groupId>javax.servlet</groupId>
+		        <artifactId>javax.servlet-api</artifactId>
+		        <version>3.0.1</version>
+		      </dependency>
+		    </dependencies>
+		  </plugin>
+					
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
 	
 	<dependencies>
 	
+		<!--Jasper reports -->
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>5.5.0</version>
+		</dependency>
 
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		
+				
 		<!-- velocity -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
@@ -34,7 +96,19 @@
 			<artifactId>velocity-tools</artifactId>
 			<version>2.0</version>
 		</dependency>
-
+		
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+				
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -204,10 +278,10 @@
 		    <artifactId>tiles-servlet</artifactId>
 		    <version>${tiles.version}</version>
 		</dependency>
-		
-
-	
   </dependencies>	
+  
+  
+  
 	
   
 </project>
