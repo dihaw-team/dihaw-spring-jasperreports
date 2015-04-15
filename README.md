@@ -1,10 +1,12 @@
 # dihaw-spring-jasperreports
-Maven Spring MVC Application
+Spring MVC and Jasper report
+
 
 ## Technology used:
 	
 	* Maven
 	* Spring MVC
+	* Ireport Design
 	* Tiles: in order to create the template (header, body, menu, footer)
 	* logback: Logback is intended as a successor to the popular log4j project.
 
@@ -18,6 +20,10 @@ Maven Spring MVC Application
     * Go to http://localhost:port/dihaw-spring-jasperreports/
     * The log will be setted on the C:\dihaw\logs\dihaw-spring-jasperreports\SystemOut.log file (see the logback.xml file)
 
+## keyword
+	
+	*Spring MVC, Ireport Design, Jasper Report, Tiles.
 
-	Developed by Amin Berguiga
+
+	Developed by Muhamed Amine Berguiga
 	http://team.dihaw.com
