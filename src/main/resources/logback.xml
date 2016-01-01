@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="true" scan="true" scanPeriod="30 seconds">
 	<appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>C:/dihaw/logs/dihaw-spring-jasperreports/SystemOut.log</file>
+		<file>C:/dihaw/dihaw-spring-jasperreports/logs/SystemOut.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>C:/dihaw/logs/dihaw-spring-jasperreports/SystemOut_%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
+			<fileNamePattern>C:/dihaw/dihaw-spring-jasperreports/logs/SystemOut_%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
 			<maxHistory>7</maxHistory>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<maxFileSize>20MB</maxFileSize> 

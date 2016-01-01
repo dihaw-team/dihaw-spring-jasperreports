@@ -18,12 +18,14 @@ Spring MVC and Jasper report
     * After import, click the right mouse button on your project, Configure -> Convert to Maven Project.
     * To run the project, use "clean compile install" cmd.
     * Go to http://localhost:port/dihaw-spring-jasperreports/
-    * The log will be setted on the C:\dihaw\logs\dihaw-spring-jasperreports\SystemOut.log file (see the logback.xml file)
+	* The jasper's files will be created on the C:\dihaw\dihaw-spring-jasperreports\jasperreports folder (see the pom.xml file, jasperreports-maven-plugin: Configuration plugin)
+    * The log will be setted on the C:\dihaw\dihaw-spring-jasperreports\logs\SystemOut.log file (see the logback.xml file)
 
 ## keyword
 	
 	*Spring MVC, Ireport Design, Jasper Report, Tiles.
 
 
-	Developed by Muhamed Amine Berguiga
+	Developed by Wahid Gazzah
 	http://team.dihaw.com
+	wahid.gazzah@gmail.com

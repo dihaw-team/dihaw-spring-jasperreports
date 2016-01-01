@@ -14,46 +14,9 @@
 			<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
 			<tiles.version>3.0.3</tiles.version>
 		</properties>
-	
 	<build>
 		<finalName>dihaw-spring-jasperreports</finalName>
 		<plugins>
-		<!-- 		Add this Plugin to compile list of jrxml in order to get .jasper file -->
-		  <plugin>
-		    <groupId>org.codehaus.mojo</groupId>
-		    <artifactId>jasperreports-maven-plugin</artifactId>
-		    <version>1.0-beta-2</version>
-		    <executions>
-		      <execution>
-		        <goals>
-		          <goal>compile-reports</goal>
-		        </goals>
-		      </execution>
-		    </executions>
-		    <dependencies>
-		      <dependency>
-		        <groupId>net.sf.jasperreports</groupId>
-		        <artifactId>jasperreports</artifactId>
-		        <version>5.5.0</version>
-		      </dependency>
-		      <dependency>
-		        <groupId>javax.servlet</groupId>
-		        <artifactId>javax.servlet-api</artifactId>
-		        <version>3.0.1</version>
-		      </dependency>
-		    </dependencies>
-		  </plugin>
-					
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-					<wtpversion>2.0</wtpversion>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -63,10 +26,43 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+		  <plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>jasperreports-maven-plugin</artifactId>
+		    <version>1.0-beta-2</version>
+			<configuration>
+				<outputDirectory>C://dihaw/dihaw-spring-jasperreports/jasperreports</outputDirectory>
+					<sourceDirectory>src/main/resources/jasperreports</sourceDirectory>
+			</configuration>
+			<dependencies>
+				<dependency>
+					<groupId>net.sf.jasperreports</groupId>
+					<artifactId>jasperreports</artifactId>
+					<version>4.0.1</version>
+				</dependency>
+				<!-- 
+				<dependency>
+					<groupId>net.sf.barcode4j</groupId>
+					<artifactId>barcode4j</artifactId>
+					<version>2.1</version>
+				</dependency>
+				-->
+			</dependencies>
+			<executions>
+				<execution>
+					<goals>
+						<goal>compile-reports</goal>
+					</goals>
+				</execution>
+			</executions>
+		  </plugin>
 		</plugins>
 	</build>
-
 	
 	<dependencies>
 	
@@ -74,8 +70,40 @@
 		<dependency>
 		    <groupId>net.sf.jasperreports</groupId>
 		    <artifactId>jasperreports</artifactId>
-		    <version>5.5.0</version>
+		    <version>4.0.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+  				<exclusion>
+  					<artifactId>commons-logging</artifactId>
+  					<groupId>commons-logging</groupId>
+  				</exclusion>
+				<exclusion>
+					<artifactId>bcprov-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>bcmail-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+		
+		<dependency>
+			<groupId>net.sourceforge.barbecue</groupId>
+			<artifactId>barbecue</artifactId>
+			<version>1.5-beta1</version>
+		</dependency>
+
+<!-- 		Apache POI - Java API To Access Microsoft Format Files - Excel Libraries -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.12</version>
+		</dependency>
+
 
 		<!-- Log4j -->
 		<dependency>
@@ -84,18 +112,6 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		
-				
-		<!-- velocity -->
-		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>1.7</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity-tools</artifactId>
-			<version>2.0</version>
-		</dependency>
 		
 		<!-- Log4j -->
 		<dependency>
@@ -110,6 +126,7 @@
 			<version>2.5</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -120,7 +137,6 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
-
 	
 	    <dependency>
 	      <groupId>javax.servlet</groupId>
@@ -191,24 +207,7 @@
 			<artifactId>spring-expression</artifactId>
 			<version>${spring-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-orm</artifactId>
-		    <version>${spring-version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -226,13 +225,13 @@
 		</dependency>
 
 
-		
  
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${jcl-over-slf4j.version}</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -254,6 +253,7 @@
 		   <version>2.1</version>
 		   <scope>provided</scope>
 		 </dependency>
+
 
 		<!-- jstl -->
 		<dependency>
@@ -279,9 +279,5 @@
 		    <version>${tiles.version}</version>
 		</dependency>
   </dependencies>	
-  
-  
-  
-	
-  
+
 </project>

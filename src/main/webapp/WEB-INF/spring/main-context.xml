@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
@@ -9,15 +10,26 @@
 	
 	<context:component-scan base-package="com.dihaw" />
 	
-	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-		<property name="defaultLocale" value="fr" ></property>
+	<!-- Declare ResourceBundleViewResolver bean -->
+	<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views" />
+		<property name="order" value="0" />
 	</bean>
-	
-	<!-- Declare resource bundle bean -->
+
+	<!-- Declare InternalResourceViewResolver bean -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">	
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean> 
+
+	<!-- Declare ResourceBundleMessageSource bean -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="useCodeAsDefaultMessage" value="true" />
 		<property name="basename" value="content.Language" />
 	</bean>
 	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="fr" ></property>
+	</bean>
 	
 </beans>

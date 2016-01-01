@@ -67,17 +67,38 @@ img {
    # float: left;
 }
 
-div#logo {
+.logo > a {
+	background-image:url(../images/logo.png) ; 
+   	background-repeat: no-repeat;
+    background-size: 200px 30px;
+    height: 35px;
+	margin: 0 30px;
+	width: 23%;
+	display: block;
+}
+
+.header >div#logo {
+	background-image:url(../images/logo.png) ; 
+   	background-repeat: no-repeat;
+    background-size: 200px 30px;
+    height: 35px;
+	margin: 0 30px;
+	width: 23%;
+}
+
+.footer div#logo {
 	background-image:url(../images/logo.png) ; 
    	background-repeat: no-repeat;
     background-size: 100px 15px;
     height: 25px;
-	#margin: -10px 25px 0;
+	margin: 0 30px;
 }
+
 div#home-title {
-    float: left;
+	float: right;
     font-size: 1.5em;
-    margin: 0 0 0 30px;
+    margin: -33px 140px -10px 30px;
+	width: 50%;
 }
 
 #main-message{
@@ -175,7 +196,6 @@ div#home-title {
 
 .menu ul li a{
 	color: #0066b3;
-	padding: 5px 70px;
 }
 
 .menu ul li.selected a{
@@ -335,7 +355,7 @@ div#home-title {
 .header{
 	background: #fafafa;
     border-radius: 10px 10px 0 0;
-    padding: 35px 0 0;
+    padding: 20px 0 0;
     text-align: center;
     width: 950px;
 }

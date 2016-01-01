@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Hello controller.
+ * 
+ * @author Wahid Gazzah
+ * @since 0.0.1
+ */
 @Controller
 public class HelloController {
 	private final Logger logger = LoggerFactory.getLogger(getClass());

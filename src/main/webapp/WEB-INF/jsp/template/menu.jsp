@@ -4,10 +4,9 @@
 
 <spring:url value="/" var="helloUrl" />
 <spring:url value="/about" var="aboutUrl" />
-<spring:url value="/showPdfPage/getPdf" var="showPdfPage" />
+<spring:url value="/report" var="reportUrl" />
 
 <div class="menu">
-
 
 	<ul>
 		<li ${fn:contains(pageContext.request.requestURI, 'about') ? 'class="selected"' : ''}>
@@ -16,8 +15,8 @@
 		<li ${fn:contains(pageContext.request.requestURI, 'hello') ? 'class="selected"' : ''}>
 			<a href="${helloUrl}"><spring:message code="menu.hello" /></a>
 		</li>
-		<li ${fn:contains(pageContext.request.requestURI, 'showPdfPage') ? 'class="selected"' : ''}>
-			<a href="${showPdfPage}"><spring:message code="menu.jasperReport" /></a>
+		<li ${fn:contains(pageContext.request.requestURI, 'jasper.') ? 'class="selected"' : ''}>
+			<a href="${reportUrl}"><spring:message code="menu.jasperReport" /></a>
 		</li>
 	</ul>
 </div> 
