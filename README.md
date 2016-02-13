@@ -16,7 +16,8 @@ Spring MVC and Jasper report
     * Surf in the Import menu to Git and select Projects from Git.
     * Choose URI at this point...
     * After import, click the right mouse button on your project, Configure -> Convert to Maven Project.
-    * To run the project, use "clean compile install" cmd.
+    * Compile the project, use "clean compile install" cmd.
+    * Run on server ( tomcat server )
     * Go to http://localhost:port/dihaw-spring-jasperreports/
 	* The jasper's files will be created on the C:\dihaw\dihaw-spring-jasperreports\jasperreports folder (see the pom.xml file, jasperreports-maven-plugin: Configuration plugin)
     * The log will be setted on the C:\dihaw\dihaw-spring-jasperreports\logs\SystemOut.log file (see the logback.xml file)
