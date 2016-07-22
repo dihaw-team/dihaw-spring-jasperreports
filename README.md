@@ -1,6 +1,7 @@
 # dihaw-spring-jasperreports
 Spring MVC and Jasper report
-
+======================
+![dihaw-team](http://team.dihaw.com/images/team-logo.png)
 
 ## Technology used:
 	
